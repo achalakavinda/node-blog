@@ -19,6 +19,8 @@ const MongoConnectUri = "mongodb+srv://"+process.env.mongodb_user+":"+process.en
 
 connectDb();
 
+app.use(express.json());
+
 app.use(express.static('public'))
 app.use(cookieParser())
 app.use(session({
@@ -40,7 +42,9 @@ app.set('view engine','ejs')
 //attach routes
 app.use('/',require('./server/routes/main'));
 app.use('/admin',require('./server/routes/admin'));
-app.use('/api',require('./server/routes/api/blog'));
+
+
+app.use('/api/blogs',require('./server/routes/api/blog'));
 
 
 

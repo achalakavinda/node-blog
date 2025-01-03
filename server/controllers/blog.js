@@ -13,3 +13,15 @@ exports.getAllAsync = async (req,res)=>{
         res.json({message: error});
     }
 }
+
+exports.saveAsync = async (req,res)=>{
+    try
+    {
+        console.log(req.body)        
+        res.json(req.body);
+    }
+    catch(error)
+    {
+        res.json({message: error});
+    }
+}
